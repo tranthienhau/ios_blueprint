@@ -8,13 +8,11 @@
 import UIKit
 
 protocol BasicPageViewProtocol: AnyObject {
-   
 }
 
 class BasicPageView: UIViewController {
 
     var presenter : BasicPagePresenterProtocol?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +20,5 @@ class BasicPageView: UIViewController {
     }
 }
 
-
 extension BasicPageView : BasicPageViewProtocol {
-    
 }

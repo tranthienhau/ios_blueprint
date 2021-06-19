@@ -12,7 +12,6 @@ struct MoviResponse {
     let totalResults: Int?
     let totalPages: Int?
     let results: [MovieItemResponse]?
-    
     enum MoviResponse: String, CodingKey {
         case page
         case totalResults = "total_results"
@@ -24,7 +23,6 @@ struct MoviResponse {
 extension MoviResponse: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: MoviResponse.self)
-        
         page = try container.decode(Int.self, forKey: .page)
         totalResults = try container.decode(Int.self, forKey: .totalResults)
         totalPages = try container.decode(Int.self, forKey: .totalPages)
@@ -35,12 +33,9 @@ extension MoviResponse: Decodable {
 extension MoviResponse: Encodable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: MoviResponse.self)
-        
         try container.encode(page, forKey: .page)
         try container.encode(totalResults, forKey: .totalResults)
         try container.encode(totalPages, forKey: .totalPages)
         try container.encode(results, forKey: .results)
     }
 }
-
-

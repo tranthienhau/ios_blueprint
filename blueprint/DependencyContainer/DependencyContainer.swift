@@ -7,6 +7,7 @@
 import Swinject
 import Foundation
 
+// swiftlint:disable all
 class ApplicationAssembly: Assembly {
     func assemble(container: Container) {
         container.register(DemoAPIProtocol.self, factory: { resolver in
@@ -26,3 +27,4 @@ class DependencyContainer {
         return resolver.resolve(T.self)!
     }
 }
+// swiftlint:enable all

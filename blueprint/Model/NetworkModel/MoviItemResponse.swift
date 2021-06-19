@@ -38,11 +38,9 @@ struct MovieItemResponse {
     }
 }
 
-
 extension MovieItemResponse: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: MovieItemResponse.self)
-        
         popularity = try container.decode(Double.self, forKey: .popularity)
         voteCount = try container.decode(Int.self, forKey: .voteCount)
         video = try container.decode(Bool.self, forKey: .video)
@@ -56,14 +54,12 @@ extension MovieItemResponse: Decodable {
         voteAverage = try container.decode(Double.self, forKey: .voteAverage)
         overview = try container.decode(String.self, forKey: .overview)
         releaseDate = try container.decode(String.self, forKey: .releaseDate)
-       
     }
 }
 
 extension MovieItemResponse: Encodable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: MovieItemResponse.self)
-        
         try container.encode(popularity, forKey: .popularity)
         try container.encode(voteCount, forKey: .voteCount)
         try container.encode(video, forKey: .video)

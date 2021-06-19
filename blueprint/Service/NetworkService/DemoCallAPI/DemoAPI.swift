@@ -15,10 +15,10 @@ enum DemoAPI {
 extension DemoAPI : TargetType {
 
     var baseURL: URL {
-        guard let url = URL(string: AppConstants.hostUrl) else { fatalError() }
+        guard let url = URL(string: AppConstants.hostUrl) else { fatalError() } // swiftlint:disable:this all
         return url
     }
-    
+
     var path: String {
         switch self {
         case .popular:
@@ -27,26 +27,23 @@ extension DemoAPI : TargetType {
             return "search/movie"
         }
     }
-    
     var method: Method {
             return .get
         }
-        
         var sampleData: Data {
             return Data()
         }
-    
     var task: Task {
         switch self {
         case .popular :
-            return .requestParameters(parameters: ["api_key": AppConstants.apiKey], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["api_key": AppConstants.apiKey],
+                                      encoding: URLEncoding.queryString)
         case .search(let query):
-            return .requestParameters(parameters: ["query" : query, "api_key": AppConstants.apiKey], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["query" : query, "api_key": AppConstants.apiKey],
+                                      encoding: URLEncoding.queryString)
         }
     }
-    
     var headers: [String : String]? {
         return nil
     }
-    
 }

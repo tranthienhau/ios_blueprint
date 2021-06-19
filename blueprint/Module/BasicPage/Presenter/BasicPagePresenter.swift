@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol BasicPagePresenterProtocol: AnyObject {
     func onViewDidLoad()
     func onviewWillAppear()
@@ -16,33 +15,21 @@ protocol BasicPagePresenterProtocol: AnyObject {
     func onViewDidDisAppear()
 }
 
-
 class BasicPagePresenter {
-    
     weak var view: BasicPageViewProtocol?
     var interactor: BasicPageInteractorProtocol?
     var router: BasicPageRouterProtocol?
-    
 }
 
 extension BasicPagePresenter : BasicPagePresenterProtocol {
     func onViewDidLoad() {
-        
     }
-    
     func onviewWillAppear() {
-        
     }
-    
     func onViewDidAppear() {
-        
     }
-    
     func onViewWillDisAppear() {
-        
     }
-    
     func onViewDidDisAppear() {
-        
     }
 }

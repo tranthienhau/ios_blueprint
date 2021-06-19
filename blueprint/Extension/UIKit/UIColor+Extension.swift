@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIColor {
+    // swiftlint:disable all
     public convenience init?(hexString: String) {
         let r, g, b, a: CGFloat
         var hex = hexString
@@ -33,4 +34,5 @@ extension UIColor {
         }
         self.init(red: 1, green: 0, blue: 0, alpha: 1.0)
     }
+    // swiftlint:enable all
 }

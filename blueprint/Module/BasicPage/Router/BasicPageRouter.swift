@@ -15,5 +15,4 @@ class BasicPageRouter {
 }
 
 extension BasicPageRouter : BasicPageRouterProtocol {
-    
 }

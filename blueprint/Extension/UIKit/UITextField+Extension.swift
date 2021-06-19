@@ -12,12 +12,15 @@ extension UITextField {
         let text = self.text ?? ""
         return text.trimmingCharacters(in: .whitespaces).isEmpty
     }
-    
-    func setPlaceHolderColor(with color: UIColor, text: String = "", font: UIFont = UIFont.systemFont(ofSize: 14)) {
-        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor: color,
-                                                                                   NSAttributedString.Key.font: font])
+    func setPlaceHolderColor(with color: UIColor,
+                             text: String = "",
+                             font: UIFont = UIFont.systemFont(ofSize: 14)) {
+        self.attributedPlaceholder = NSAttributedString(string: text,
+                                                        attributes: [
+                                                            NSAttributedString.Key.foregroundColor: color,
+                                                            NSAttributedString.Key.font: font])
     }
-    func setLeftPadding(_  amount:CGFloat){
+    func setLeftPadding(amount:CGFloat) {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
         self.leftView = paddingView
         self.leftViewMode = .always
