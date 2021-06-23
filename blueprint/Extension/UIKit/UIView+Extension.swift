@@ -10,25 +10,30 @@ import UIKit
 
 extension UIView {
     func addCornerRadius(radius: CGFloat = 6) {
-        self.layer.cornerRadius     = radius
-        self.layer.masksToBounds    = true
+        layer.cornerRadius = radius
+        layer.masksToBounds = true
     }
+
     func addBorder(color: UIColor, borderWidth: CGFloat = 1) {
-        self.layer.borderWidth = borderWidth
-        self.layer.borderColor = color.cgColor
+        layer.borderWidth = borderWidth
+        layer.borderColor = color.cgColor
     }
-    func setShadow(color: UIColor = UIColor.black.withAlphaComponent(0.1),
-                   shadowOffset: CGSize = CGSize(width: 0, height: 1),
-                   shadowOpacity: Float = 1,
-                   shadowRadius: CGFloat = 6,
-                   cornerRadius: CGFloat = 6) {
-        self.layer.cornerRadius         = cornerRadius
-        self.layer.masksToBounds        = false
-        self.layer.shadowColor          =  color.cgColor
-        self.layer.shadowOffset         = shadowOffset
-        self.layer.shadowOpacity        = shadowOpacity
-        self.layer.shadowRadius         = shadowRadius
+
+    func setShadow(
+        color: UIColor = UIColor.black.withAlphaComponent(0.1),
+        shadowOffset: CGSize = CGSize(width: 0, height: 1),
+        shadowOpacity: Float = 1,
+        shadowRadius: CGFloat = 6,
+        cornerRadius: CGFloat = 6
+    ) {
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOffset = shadowOffset
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
     }
+
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat = 6.0) {
         let path = UIBezierPath(roundedRect: bounds,
                                 byRoundingCorners: corners,
@@ -37,6 +42,7 @@ extension UIView {
         mask.path = path.cgPath
         layer.mask = mask
     }
+
     func roundEdges(_ edges: UIRectEdge, radius: CGFloat = 6.0) {
         var corners: UIRectCorner = []
         if edges.contains(.top) {
@@ -53,10 +59,12 @@ extension UIView {
         }
         roundCorners(corners, radius: radius)
     }
+
     func setGradientBackground(colorTop: UIColor,
                                colorBottom: UIColor,
                                startPoint: CGPoint,
-                               endPoint: CGPoint) {
+                               endPoint: CGPoint
+    ) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop.cgColor, colorBottom.cgColor]
         gradientLayer.startPoint = startPoint
@@ -65,11 +73,13 @@ extension UIView {
         gradientLayer.frame = bounds
         layer.insertSublayer(gradientLayer, at: 0)
     }
+
     func generateGradientBackground(colorTop: UIColor,
                                     colorBottom: UIColor,
                                     startPoint: CGPoint,
                                     endPoint: CGPoint,
-                                    cornerRadius: CGFloat = 6.0) -> CAGradientLayer {
+                                    cornerRadius: CGFloat = 6.0
+    ) -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop.cgColor, colorBottom.cgColor]
         gradientLayer.startPoint = startPoint

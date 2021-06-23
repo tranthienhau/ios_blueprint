@@ -21,15 +21,14 @@ class BasicPagePresenter {
     var router: BasicPageRouterProtocol?
 }
 
-extension BasicPagePresenter : BasicPagePresenterProtocol {
-    func onViewDidLoad() {
-    }
-    func onviewWillAppear() {
-    }
-    func onViewDidAppear() {
-    }
-    func onViewWillDisAppear() {
-    }
-    func onViewDidDisAppear() {
-    }
+extension BasicPagePresenter: BasicPagePresenterProtocol {
+    func onViewDidLoad() {}
+
+    func onviewWillAppear() {}
+
+    func onViewDidAppear() {}
+
+    func onViewWillDisAppear() {}
+
+    func onViewDidDisAppear() {}
 }

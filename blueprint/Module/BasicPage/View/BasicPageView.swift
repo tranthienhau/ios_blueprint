@@ -7,12 +7,10 @@
 
 import UIKit
 
-protocol BasicPageViewProtocol: AnyObject {
-}
+protocol BasicPageViewProtocol: AnyObject {}
 
 class BasicPageView: UIViewController {
-
-    var presenter : BasicPagePresenterProtocol?
+    var presenter: BasicPagePresenterProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,5 +18,4 @@ class BasicPageView: UIViewController {
     }
 }
 
-extension BasicPageView : BasicPageViewProtocol {
-}
+extension BasicPageView: BasicPageViewProtocol {}

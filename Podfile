@@ -12,6 +12,7 @@ target 'blueprint' do
   pod 'TPKeyboardAvoiding'
   pod 'Validator'#, '=3.1.1'
   pod 'SwiftLint'
+  pod 'KeychainSwift', '~> 19.0'
 
   target 'blueprintTests' do
     inherit! :search_paths

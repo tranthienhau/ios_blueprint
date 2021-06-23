@@ -12,23 +12,25 @@ import Moya
 protocol BaseNetworkService {
     func request<D: Decodable>(target: TargetType,
                                completion: @escaping (Result<D,
-                                                             Error>) -> ())
+                                   Error>) -> Void)
 }
 
-class BaseNetworkRepository < T : TargetType> : BaseNetworkService {
-    let provider : MoyaProvider<T>?
+class BaseNetworkRepository<T: TargetType>: BaseNetworkService {
+    let provider: MoyaProvider<T>?
     init() {
         provider = MoyaProvider<T>(plugins: [NetworkLoggerPlugin()])
     }
+
     func request<D>(target: TargetType,
-                    completion: @escaping (Result<D, Error>) -> ()) where D : Decodable {
+                    completion: @escaping (Result<D, Error>) -> Void) where D: Decodable
+    {
         provider?.request(target as! T) { result in
             switch result {
             case let .success(response):
                 do {
                     let results = try JSONDecoder().decode(D.self, from: response.data)
                     completion(.success(results))
-                } catch let error {
+                } catch {
                     completion(.failure(error))
                 }
             case let .failure(error):
@@ -37,4 +39,5 @@ class BaseNetworkRepository < T : TargetType> : BaseNetworkService {
         }
     }
 }
+
 // swiftlint:enable all

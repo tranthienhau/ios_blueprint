@@ -12,22 +12,27 @@ extension UITextField {
         let text = self.text ?? ""
         return text.trimmingCharacters(in: .whitespaces).isEmpty
     }
+
     func setPlaceHolderColor(with color: UIColor,
                              text: String = "",
-                             font: UIFont = UIFont.systemFont(ofSize: 14)) {
-        self.attributedPlaceholder = NSAttributedString(string: text,
-                                                        attributes: [
-                                                            NSAttributedString.Key.foregroundColor: color,
-                                                            NSAttributedString.Key.font: font])
+                             font: UIFont = UIFont.systemFont(ofSize: 14)
+    ) {
+        attributedPlaceholder = NSAttributedString(string: text,
+                                                   attributes: [
+                                                       NSAttributedString.Key.foregroundColor: color,
+                                                       NSAttributedString.Key.font: font
+                                                   ])
     }
-    func setLeftPadding(amount:CGFloat) {
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
-        self.leftView = paddingView
-        self.leftViewMode = .always
+
+    func setLeftPadding(amount: CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: frame.size.height))
+        leftView = paddingView
+        leftViewMode = .always
     }
-    func setRightPadding(_ amount:CGFloat) {
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
-        self.rightView = paddingView
-        self.rightViewMode = .always
+
+    func setRightPadding(_ amount: CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: frame.size.height))
+        rightView = paddingView
+        rightViewMode = .always
     }
 }

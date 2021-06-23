@@ -7,12 +7,10 @@
 
 import Foundation
 
-protocol BasicPageInteractorProtocol {
-}
+protocol BasicPageInteractorProtocol {}
 
 class BasicPageInteractor {
     weak var presenter: BasicPagePresenterProtocol?
 }
 
-extension BasicPageInteractor : BasicPageInteractorProtocol {
-}
+extension BasicPageInteractor: BasicPageInteractorProtocol {}

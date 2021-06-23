@@ -10,11 +10,15 @@ import UIKit
 struct BuilderElectionMap {
     static func buildModule() -> UIViewController {
         let view = BasicPageView(nibName: "BasicPageView", bundle: nil)
+
         // MARK: Initialise components.
+
         let presenter = BasicPagePresenter()
         let interactor = BasicPageInteractor()
         let router = BasicPageRouter()
+
         // MARK: link Viper components.
+
         // Setup View
         view.presenter = presenter
         // Setup Presenter

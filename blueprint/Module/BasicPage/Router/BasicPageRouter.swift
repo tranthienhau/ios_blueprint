@@ -7,12 +7,10 @@
 
 import UIKit
 
-protocol BasicPageRouterProtocol {
-}
+protocol BasicPageRouterProtocol {}
 
 class BasicPageRouter {
-    weak var viewController : UIViewController?
+    weak var viewController: UIViewController?
 }
 
-extension BasicPageRouter : BasicPageRouterProtocol {
-}
+extension BasicPageRouter: BasicPageRouterProtocol {}

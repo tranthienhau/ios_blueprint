@@ -14,10 +14,12 @@ private extension DispatchQueue {
         return "\(Unmanaged.passUnretained(object).toOpaque())." + String(describing: object)
     }
 }
-extension DispatchQueue {
-    public func asyncDebounce(target: AnyObject,
-                              after delay: TimeInterval,
-                              execute work: @escaping () -> Void) {
+
+public extension DispatchQueue {
+    func asyncDebounce(target: AnyObject,
+                       after delay: TimeInterval,
+                       execute work: @escaping () -> Void
+    ) {
         let debounceIndetifier = DispatchQueue.debounceIndetifierFor(target)
         if let existingWorkItem = DispatchQueue.workItems.removeValue(forKey: debounceIndetifier) {
             existingWorkItem.cancel()
