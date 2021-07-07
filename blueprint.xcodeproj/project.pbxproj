@@ -42,6 +42,11 @@
 		AAC12A5826720C3F0043008C /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC12A5726720C3F0043008C /* DependencyContainer.swift */; };
 		AAC12A5B267225750043008C /* BaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC12A5A267225750043008C /* BaseNetworkService.swift */; };
 		AAC12A5D26724C0D0043008C /* ExampleNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC12A5C26724C0D0043008C /* ExampleNetworkModel.swift */; };
+		AADA7548268DFFDE00C40DBB /* DatabaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA7547268DFFDE00C40DBB /* DatabaseServiceProtocol.swift */; };
+		AAE5433B2684C2C200B56670 /* PUserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5433A2684C2C200B56670 /* PUserDefaultService.swift */; };
+		AAE5433D2684C2D100B56670 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5433C2684C2D100B56670 /* UserDefaultService.swift */; };
+		AAE9F6C3268A0B91008839EA /* KeyChainServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9F6C2268A0B91008839EA /* KeyChainServiceTest.swift */; };
+		AAE9F6C6268A250C008839EA /* UserDefaultServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9F6C5268A250C008839EA /* UserDefaultServiceTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +110,11 @@
 		AAC12A5726720C3F0043008C /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		AAC12A5A267225750043008C /* BaseNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkService.swift; sourceTree = "<group>"; };
 		AAC12A5C26724C0D0043008C /* ExampleNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleNetworkModel.swift; sourceTree = "<group>"; };
+		AADA7547268DFFDE00C40DBB /* DatabaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceProtocol.swift; sourceTree = "<group>"; };
+		AAE5433A2684C2C200B56670 /* PUserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUserDefaultService.swift; sourceTree = "<group>"; };
+		AAE5433C2684C2D100B56670 /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
+		AAE9F6C2268A0B91008839EA /* KeyChainServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainServiceTest.swift; sourceTree = "<group>"; };
+		AAE9F6C5268A250C008839EA /* UserDefaultServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultServiceTest.swift; sourceTree = "<group>"; };
 		B061CE1470F4800206BE04B9 /* Pods-blueprintTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueprintTests.debug.xcconfig"; path = "Target Support Files/Pods-blueprintTests/Pods-blueprintTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4EC948B20EAAC3596CDDE7C /* Pods-blueprint-blueprintUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueprint-blueprintUITests.debug.xcconfig"; path = "Target Support Files/Pods-blueprint-blueprintUITests/Pods-blueprint-blueprintUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E57D2956DB41E66DF1BA26CB /* Pods_blueprint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blueprint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +308,8 @@
 		AA72F8B926782578002A0925 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				AAE9F6C4268A24ED008839EA /* UserDefaultService */,
+				AAE9F6C1268A0B3E008839EA /* KeyChainService */,
 				AA72F8BA2678257F002A0925 /* NetworkService */,
 			);
 			path = Service;
@@ -421,6 +433,7 @@
 		AAC12A5526720BBD0043008C /* DatabaseService */ = {
 			isa = PBXGroup;
 			children = (
+				AADA7547268DFFDE00C40DBB /* DatabaseServiceProtocol.swift */,
 			);
 			path = DatabaseService;
 			sourceTree = "<group>";
@@ -428,6 +441,7 @@
 		AAC12A5626720BDD0043008C /* StorageService */ = {
 			isa = PBXGroup;
 			children = (
+				AAE543382684C05900B56670 /* UserDefaultService */,
 				AA6D52952681F2970030B7B3 /* KeyChainService */,
 			);
 			path = StorageService;
@@ -438,6 +452,31 @@
 			children = (
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		AAE543382684C05900B56670 /* UserDefaultService */ = {
+			isa = PBXGroup;
+			children = (
+				AAE5433A2684C2C200B56670 /* PUserDefaultService.swift */,
+				AAE5433C2684C2D100B56670 /* UserDefaultService.swift */,
+			);
+			path = UserDefaultService;
+			sourceTree = "<group>";
+		};
+		AAE9F6C1268A0B3E008839EA /* KeyChainService */ = {
+			isa = PBXGroup;
+			children = (
+				AAE9F6C2268A0B91008839EA /* KeyChainServiceTest.swift */,
+			);
+			path = KeyChainService;
+			sourceTree = "<group>";
+		};
+		AAE9F6C4268A24ED008839EA /* UserDefaultService */ = {
+			isa = PBXGroup;
+			children = (
+				AAE9F6C5268A250C008839EA /* UserDefaultServiceTest.swift */,
+			);
+			path = UserDefaultService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -721,7 +760,10 @@
 				AAB47390267B4E77008C5D6D /* UITextField+Extension.swift in Sources */,
 				AA01F496266E68D900BCA88C /* AppDelegate.swift in Sources */,
 				AAC12A4D26720A580043008C /* BasicPageInteractor.swift in Sources */,
+				AADA7548268DFFDE00C40DBB /* DatabaseServiceProtocol.swift in Sources */,
 				AA01F498266E68D900BCA88C /* SceneDelegate.swift in Sources */,
+				AAE5433D2684C2D100B56670 /* UserDefaultService.swift in Sources */,
+				AAE5433B2684C2C200B56670 /* PUserDefaultService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,8 +771,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE9F6C6268A250C008839EA /* UserDefaultServiceTest.swift in Sources */,
 				AA01F4AD266E68DB00BCA88C /* blueprintTests.swift in Sources */,
 				AA72F8BC267825F1002A0925 /* DemoAPIRepositoryTest.swift in Sources */,
+				AAE9F6C3268A0B91008839EA /* KeyChainServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,7 +872,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -883,7 +927,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -901,6 +945,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = blueprint/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -920,6 +965,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = blueprint/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

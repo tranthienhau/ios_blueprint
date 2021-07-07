@@ -45,7 +45,7 @@ extension DemoAPI: TargetType {
                                       encoding: URLEncoding.queryString)
         }
     }
-    
+
     var body: [String: Any]? {
         return nil
     }

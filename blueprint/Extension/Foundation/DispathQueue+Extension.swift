@@ -18,8 +18,7 @@ private extension DispatchQueue {
 public extension DispatchQueue {
     func asyncDebounce(target: AnyObject,
                        after delay: TimeInterval,
-                       execute work: @escaping () -> Void
-    ) {
+                       execute work: @escaping () -> Void) {
         let debounceIndetifier = DispatchQueue.debounceIndetifierFor(target)
         if let existingWorkItem = DispatchQueue.workItems.removeValue(forKey: debounceIndetifier) {
             existingWorkItem.cancel()

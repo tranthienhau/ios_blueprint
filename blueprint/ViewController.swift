@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        DependencyContainer.sharedInstance.registerServices()
         let demoAPIService: DemoAPIProtocol = DependencyContainer.sharedInstance.getService()
         demoAPIService.fetchPopularMovies(completion: { [weak self] result in
             guard let strongSelf = self else { return }

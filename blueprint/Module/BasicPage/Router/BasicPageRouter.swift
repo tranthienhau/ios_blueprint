@@ -10,7 +10,11 @@ import UIKit
 protocol BasicPageRouterProtocol {}
 
 class BasicPageRouter {
-    weak var viewController: UIViewController?
+    private weak var viewController: UIViewController?
+
+    init(viewController: UIViewController) {
+        self.viewController = viewController
+    }
 }
 
 extension BasicPageRouter: BasicPageRouterProtocol {}

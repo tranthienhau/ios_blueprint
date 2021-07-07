@@ -5,8 +5,8 @@
 //  Created by DatNguyen on 15/06/2021.
 //
 
-import UIKit
 import Toaster
+import UIKit
 
 enum LeftBarItem {
     case none, back, close
@@ -74,9 +74,9 @@ extension UIViewController {
     func popViewController() {
         navigationController?.popViewController(animated: true)
     }
-    
+
     func showToast(message: String, delay: TimeInterval, time: TimeInterval) {
-        let toast = Toast(text: message, delay: delay, duration : time)
+        let toast = Toast(text: message, delay: delay, duration: time)
         toast.show()
     }
 }

@@ -11,6 +11,10 @@ protocol BasicPageInteractorProtocol {}
 
 class BasicPageInteractor {
     weak var presenter: BasicPagePresenterProtocol?
+
+    init() {
+    }
+
 }
 
 extension BasicPageInteractor: BasicPageInteractorProtocol {}

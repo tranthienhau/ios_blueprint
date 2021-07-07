@@ -13,22 +13,14 @@ struct BuilderElectionMap {
 
         // MARK: Initialise components.
 
-        let presenter = BasicPagePresenter()
         let interactor = BasicPageInteractor()
-        let router = BasicPageRouter()
+        let router = BasicPageRouter(viewController: view)
+        let presenter = BasicPagePresenter(view: view, interactor: interactor, router: router)
 
         // MARK: link Viper components.
-
-        // Setup View
-        view.presenter = presenter
-        // Setup Presenter
-        presenter.view = view
-        presenter.router = router
-        presenter.interactor = interactor
         // Setup Interactor
         interactor.presenter = presenter
-        // Setup Router
-        router.viewController = view
+
         return view
     }
 }

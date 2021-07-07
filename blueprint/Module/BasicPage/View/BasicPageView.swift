@@ -10,12 +10,20 @@ import UIKit
 protocol BasicPageViewProtocol: AnyObject {}
 
 class BasicPageView: UIViewController {
-    var presenter: BasicPagePresenterProtocol?
+
+    // IBOut
+    // Variable
+    // contructor
+    // public func
+    // private func
+    private var presenter: BasicPagePresenterProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 }
 
-extension BasicPageView: BasicPageViewProtocol {}
+extension BasicPageView: BasicPageViewProtocol {
+
+}

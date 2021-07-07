@@ -8,13 +8,16 @@
 import Foundation
 import KeychainSwift
 
-protocol PKeyChainService {
-    func save(data: Data, key: String, keyChainAccessOptions: KeychainSwiftAccessOptions?) throws
-    func save(string: String, key: String, keyChainAccessOptions: KeychainSwiftAccessOptions?) throws
-    func save(bool: Bool, key: String, keyChainAccessOptions: KeychainSwiftAccessOptions?) throws
+// swiftlint:disable identifier_name
+protocol KeyChainServicePrototcol {
+    func save(data: Any,
+              key: String,
+              keyChainAccessOptions: KeychainSwiftAccessOptions?,
+              completion: @escaping (Result<Void, Error>) -> Void)
     func getDataWith(key: String) -> Data?
     func getStringWith(key: String) -> String?
     func getBoolWith(key: String) -> Bool?
     func delete(key: String)
     func clearAll()
 }
+// swiftlint:enable identifier_name 
