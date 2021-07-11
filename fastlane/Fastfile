@@ -14,13 +14,16 @@
 # update_fastlane
 
 # ENV variables
-ENV['MATCH_GIT_BEARER_AUTHORIZATION'] = 'ZHV5bmI5MjpnaHBfQTJqM2NYU2JVb3RHQ1F4dUtIY2ZvM0JaNHJmMVZFM0wwZ0hX'
+ENV['MATCH_GIT_BASIC_AUTHORIZATION'] = 'ZHV5bmI5MjpnaHBfQTJqM2NYU2JVb3RHQ1F4dUtIY2ZvM0JaNHJmMVZFM0wwZ0hX'
+
+# Application variables
+APP_IDENTIFIER = "com.agileops.blueprint"
 
 default_platform(:ios)
 
 platform :ios do
   desc "Get development certificates & profiles"
   lane :cert_dev do
-    match(type: "development", app_identifier: "com.agileops.blueprint")
+    match(type: "development", app_identifier: APP_IDENTIFIER)
   end
 end
