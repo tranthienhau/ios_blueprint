@@ -18,6 +18,9 @@ ENV['MATCH_GIT_BASIC_AUTHORIZATION'] = 'ZHV5bmI5MjpnaHBfQTJqM2NYU2JVb3RHQ1F4dUtI
 
 # Application variables
 APP_IDENTIFIER = "com.agileops.blueprint"
+SCHEME = "blueprint"
+WORKSPACE = "blueprint.xcworkspace"
+PROJECT = "blueprint.xcodeproj"
 
 default_platform(:ios)
 
@@ -25,5 +28,76 @@ platform :ios do
   desc "Get development certificates & profiles"
   lane :cert_dev do
     match(type: "development", app_identifier: APP_IDENTIFIER)
+  end
+
+  desc "Get release certificates & profiles"
+  lane :cert_release do
+    match(type: "appstore", app_identifier: APP_IDENTIFIER)
+  end
+
+
+  desc "Build development"
+  lane :build_dev do 
+    build(release: false)
+  end
+
+  desc "Build release"
+  lane :build_release do 
+    build(release: true)
+  end
+
+  desc "Build app"
+  private_lane :build do |options|
+    # Define variables
+    build_configuration = (options[:release] ? "Release" : "Debug")
+    export_method = (options[:release] ? "app-store" : "development")
+    profile_environment = (options[:release] ? "appstore" : "development")
+    code_signing_identity = (options[:release] ? "iPhone Distribution" : "iPhone Developer")
+
+    # Disable automatic signing
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      targets: [SCHEME],
+      build_configurations: [build_configuration],
+      path: PROJECT,
+      bundle_identifier: APP_IDENTIFIER,
+      code_sign_identity: code_signing_identity
+    )
+
+    # Get certs and profiles
+    if options[:release] 
+      cert_release
+    else 
+      cert_dev
+    end
+
+    # Update profiles
+    update_project_provisioning(
+      xcodeproj: PROJECT,
+      profile: ENV["sigh_" + APP_IDENTIFIER + "_" + profile_environment + "_profile-path"],
+      build_configuration: build_configuration
+    )
+    # Update team ID
+    update_project_team(
+      path: PROJECT,
+      teamid: ENV["sigh_" + APP_IDENTIFIER + "_" + profile_environment + "_team-id"],
+    )  
+     
+    # Build
+    gym(
+      scheme: SCHEME, 
+      clean: true, 
+      output_directory: "./builds", 
+      output_name: SCHEME + "_" + build_configuration,
+      configuration: build_configuration,
+      workspace: WORKSPACE,
+      export_method: export_method,
+      export_options: {
+          method: export_method,
+          provisioningProfiles: { 
+            APP_IDENTIFIER => ENV["sigh_" + APP_IDENTIFIER + "_" + profile_environment + "_profile-path"]
+          }
+        }
+      )
   end
 end

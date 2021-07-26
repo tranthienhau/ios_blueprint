@@ -21,6 +21,21 @@ or alternatively using `brew install fastlane`
 fastlane ios cert_dev
 ```
 Get development certificates & profiles
+### ios cert_release
+```
+fastlane ios cert_release
+```
+Get release certificates & profiles
+### ios build_dev
+```
+fastlane ios build_dev
+```
+Build development
+### ios build_release
+```
+fastlane ios build_release
+```
+Build release
 
 ----
 
