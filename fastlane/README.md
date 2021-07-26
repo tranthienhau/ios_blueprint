@@ -16,11 +16,16 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios cert_dev
+### ios build_dev
 ```
-fastlane ios cert_dev
+fastlane ios build_dev
 ```
-Get development certificates & profiles
+Build development
+### ios build_release
+```
+fastlane ios build_release
+```
+Build release
 
 ----
 
