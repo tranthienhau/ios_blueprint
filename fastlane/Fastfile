@@ -57,7 +57,11 @@ platform :ios do
     # Disable automatic signing
     update_code_signing_settings(
       use_automatic_signing: false,
-      path: PROJECT
+      targets: [SCHEME],
+      build_configurations: [build_configuration],
+      path: PROJECT,
+      bundle_identifier: APP_IDENTIFIER,
+      code_sign_identity: code_signing_identity
     )
 
     # Get certs and profiles
@@ -71,8 +75,7 @@ platform :ios do
     update_project_provisioning(
       xcodeproj: PROJECT,
       profile: ENV["sigh_" + APP_IDENTIFIER + "_" + profile_environment + "_profile-path"],
-      build_configuration: build_configuration,
-      code_signing_identity: code_signing_identity
+      build_configuration: build_configuration
     )
     # Update team ID
     update_project_team(
