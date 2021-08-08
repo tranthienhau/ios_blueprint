@@ -1,9 +1,14 @@
 # Exclude all files ending by "View.swift"
 - .*View.swift
 - .*ViewController.swift
-- .*+Extension.swift
-- DependencyContainer
-- Helper
+- .*Extension.swift
+- .*Cell.swift
+- AppDelegate.swift
+- SceneDelegate.swift
+
+# Exclue project specific folders
+- blueprint/DependencyContainer
+- blueprint/Helper
 
 # Exclude all dependencies
 - Pods

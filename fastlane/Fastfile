@@ -49,6 +49,7 @@ platform :ios do
 
   desc "Test coverage"
   lane :test do
+    sh("rm -rf ../tests")
     scan(
       workspace: WORKSPACE,
       devices: ["iPhone 11"],
