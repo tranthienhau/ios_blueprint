@@ -19,6 +19,7 @@ ENV['MATCH_GIT_BASIC_AUTHORIZATION'] = 'ZHV5bmI5MjpnaHBfQTJqM2NYU2JVb3RHQ1F4dUtI
 # Application variables
 APP_IDENTIFIER = "com.agileops.blueprint"
 SCHEME = "blueprint"
+TESTSCHEME = SCHEME + "Tests"
 WORKSPACE = "blueprint.xcworkspace"
 PROJECT = "blueprint.xcodeproj"
 
@@ -44,6 +45,20 @@ platform :ios do
   desc "Build release"
   lane :build_release do 
     build(release: true)
+  end
+
+  desc "Test coverage"
+  lane :test do
+    scan(
+      workspace: WORKSPACE,
+      devices: ["iPhone 11"],
+      scheme: TESTSCHEME,
+      clean: true,
+      reinstall_app: true,
+      app_identifier: APP_IDENTIFIER,
+      prelaunch_simulator: true,
+      output_directory: "./tests"
+    )
   end
 
   desc "Build app"
