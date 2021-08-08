@@ -1,0 +1,10 @@
+# Exclude all files ending by "View.swift"
+- .*View.swift
+- .*ViewController.swift
+- .*+Extension.swift
+- DependencyContainer
+- Helper
+
+# Exclude all dependencies
+- Pods
+- Carthage/Checkouts

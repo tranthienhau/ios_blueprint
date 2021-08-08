@@ -59,6 +59,12 @@ platform :ios do
       prelaunch_simulator: true,
       output_directory: "./tests"
     )
+    xcov(
+      workspace: WORKSPACE,
+      scheme: TESTSCHEME,
+      output_directory: "./tests/xcov_output",
+      ignore_file_path: "./.xcovignore"
+    )
   end
 
   desc "Build app"
