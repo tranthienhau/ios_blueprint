@@ -36,6 +36,11 @@ Build development
 fastlane ios build_release
 ```
 Build release
+### ios test
+```
+fastlane ios test
+```
+Test coverage
 
 ----
 
